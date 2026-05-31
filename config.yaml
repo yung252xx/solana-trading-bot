@@ -16,14 +16,23 @@ max_slippage_bps: 100           # 100 = 1% max slippage
 # POPCAT: 7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr
 
 positions:
-  - token_mint: "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xgdBqaYneZkUzK4h"  # BONK
-    token_symbol: "BONK"
-    entry_price: 0.000000066        # Price you entered at (current: ~0.000000066 SOL)
-    stop_loss_pct: 15              # Sell if price drops 15% below entry
-    take_profit_pct: 25            # Sell if price rises 25% above entry
-    amount_in_sol: 0.1             # Amount of SOL to deploy
-    already_in_position: true      # true = you already hold this token, bot just watches
-    token_balance: 10000000        # how many tokens you hold (10M BONK ~ $54)
+  - token_mint: "CmGsBfi3Zbsygpt1FcvFcQa3mD2drYGX6w5WdsWZpump"  # Pump fun token
+    token_symbol: "CMGS"
+    entry_price: 0.000000000002667   # Entry: 0.005 SOL for 1,874,435,191 tokens
+    stop_loss_pct: 15                # Sell if price drops 15% below entry
+    take_profit_pct: 25              # Sell if price rises 25% above entry
+    amount_in_sol: 0.005
+    already_in_position: true
+    token_balance: 1874435191
+
+  - token_mint: "HziPQunVCQN6Knjxv96pEjqLxpJsZ7KFvHGV7TVEpump"  # Other pump fun token
+    token_symbol: "HZIP"
+    entry_price: 0.000000000000802   # Entry: 0.001 SOL for 1,247,170,983 tokens
+    stop_loss_pct: 15
+    take_profit_pct: 25
+    amount_in_sol: 0.001
+    already_in_position: true
+    token_balance: 1247170983
 
   # Add more positions like:
   # - token_mint: "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN"
