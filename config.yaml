@@ -32,7 +32,8 @@ positions:
     take_profit_pct: 25
     amount_in_sol: 0.001
     already_in_position: true
-    token_balance: 1247170983
+    token_balance: 0
+    sold: true                       # ✅ Sold at +49.6% TP
 
   # Add more positions like:
   # - token_mint: "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN"
