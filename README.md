@@ -108,5 +108,5 @@ strategies/
 ---
 
 <div align="center">
-  <p><i>Built by <a href="https://github.com/yung252xx">@yung252xx</a> with Hermes Agent</i></p>
+  <p><i>Built by <a href="https://github.com/yung252xx">@yung252xx</a></i></p>
 </div>
