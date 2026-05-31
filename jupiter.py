@@ -170,10 +170,10 @@ def execute_swap(
         tx = VersionedTransaction.from_bytes(swap_tx_bytes)
 
         # Step 3: Sign it
-        tx.sign([wallet_keypair])
+        signed_tx = VersionedTransaction(tx.message, [wallet_keypair])
 
         # Step 4: Serialize back to base64 for RPC
-        tx_bytes = bytes(tx)
+        tx_bytes = bytes(signed_tx)
         tx_b64_signed = base64.b64encode(tx_bytes).decode()
 
         # Step 5: Send via RPC
