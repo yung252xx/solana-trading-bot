@@ -1,46 +1,32 @@
-# Solana Trading Bot — Rug or Run Strategy
-# Configure your positions below
-
-# --- Global Settings ---
-rpc_url: "https://api.mainnet-beta.solana.com"
-poll_interval_seconds: 15       # How often to check prices
-dry_run: true                   # true = log only, no real swaps (set false to trade live)
-max_slippage_bps: 100           # 100 = 1% max slippage
-
-# --- Token Addresses (mainnet) ---
-# SOL: So11111111111111111111111111111111111111112
-# USDC: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
-# BONK: DezXAZ8z7PnrnRJjz3wXBoRgixCa6xgdBqaYneZkUzK4h
-# JUP: JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN
-# WIF: EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm
-# POPCAT: 7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr
-
+dry_run: true
+max_slippage_bps: 100
+poll_interval_seconds: 15
 positions:
-  - token_mint: "CmGsBfi3Zbsygpt1FcvFcQa3mD2drYGX6w5WdsWZpump"  # Pump fun token
-    token_symbol: "CMGS"
-    entry_price: 0.000000000002667   # Entry: 0.005 SOL for 1,874,435,191 tokens
-    stop_loss_pct: 15                # Sell if price drops 15% below entry
-    take_profit_pct: 25              # Sell if price rises 25% above entry
-    amount_in_sol: 0.005
-    already_in_position: true
-    token_balance: 1874435191
-
-  - token_mint: "HziPQunVCQN6Knjxv96pEjqLxpJsZ7KFvHGV7TVEpump"  # Other pump fun token
-    token_symbol: "HZIP"
-    entry_price: 0.000000000000802   # Entry: 0.001 SOL for 1,247,170,983 tokens
-    stop_loss_pct: 15
-    take_profit_pct: 25
-    amount_in_sol: 0.001
-    already_in_position: true
-    token_balance: 0
-    sold: true                       # ✅ Sold at +49.6% TP
-
-  # Add more positions like:
-  # - token_mint: "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN"
-  #   token_symbol: "JUP"
-  #   entry_price: 0.85
-  #   stop_loss_pct: 10
-  #   take_profit_pct: 30
-  #   amount_in_sol: 1.0
-  #   already_in_position: false
-  #   token_balance: 0
+- already_in_position: true
+  amount_in_sol: 0.005
+  entry_price: 2.667e-12
+  sold: true
+  stop_loss_pct: 15
+  take_profit_pct: 25
+  token_balance: 0
+  token_mint: CmGsBfi3Zbsygpt1FcvFcQa3mD2drYGX6w5WdsWZpump
+  token_symbol: CMGS
+- already_in_position: true
+  amount_in_sol: 0.001
+  entry_price: 8.02e-13
+  sold: true
+  stop_loss_pct: 15
+  take_profit_pct: 25
+  token_balance: 0
+  token_mint: HziPQunVCQN6Knjxv96pEjqLxpJsZ7KFvHGV7TVEpump
+  token_symbol: HZIP
+- already_in_position: true
+  amount_in_sol: 0.01
+  entry_price: 4.884081037502868e-12
+  sold: false
+  stop_loss_pct: 5
+  take_profit_pct: 25
+  token_balance: 2047468075
+  token_mint: HFq1GAEfsFamEQYVccRemH37qWR1VgSJZPxdVGYVpump
+  token_symbol: NOVA
+rpc_url: https://api.mainnet-beta.solana.com

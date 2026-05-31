@@ -88,6 +88,40 @@ def get_token_price_sol(token_mint: str) -> float | None:
     return None
 
 
+def get_token_price_sol_jupiter(token_mint: str) -> float | None:
+    """Get token price in SOL via Jupiter quote API.
+    Works for ANY token including pump.fun (unlike CoinGecko)."""
+    try:
+        resp = _session.get(
+            f"{JUPITER_API}/swap/v1/quote",
+            params={
+                "inputMint": SOL_MINT,
+                "outputMint": token_mint,
+                "amount": str(10_000_000),
+                "slippageBps": "500",
+            },
+            timeout=15,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        out_amount = int(data.get("outAmount", 0))
+        if out_amount > 0:
+            return 0.01 / out_amount
+        return None
+    except Exception as e:
+        print(f"  ⚠️  Jupiter price error for {token_mint[:12]}: {e}")
+        return None
+
+
+def get_any_token_price_sol(token_mint: str) -> float | None:
+    """Get token price in SOL. Tries Jupiter first (works for all tokens),
+    falls back to CoinGecko (for well-known tokens with no Jupiter liquidity)."""
+    price = get_token_price_sol_jupiter(token_mint)
+    if price is not None:
+        return price
+    return get_token_price_sol(token_mint)
+
+
 def get_sol_price_usd() -> float | None:
     """Get SOL price in USD."""
     return get_token_price_usd(SOL_MINT)
